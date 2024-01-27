@@ -49,6 +49,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.twugteam.admin.day1.di.BaseApp
 import com.twugteam.admin.day1.ui.theme.Day1Theme
 
 class MainActivity : ComponentActivity() {
