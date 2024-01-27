@@ -50,14 +50,29 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.twugteam.admin.day1.di.BaseApp
+import com.twugteam.admin.day1.di.Computer
+import com.twugteam.admin.day1.di.UserRepository
 import com.twugteam.admin.day1.ui.theme.Day1Theme
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+    @Inject
+    lateinit var computer: Computer
+
+    @Inject
+    lateinit var userRepository:UserRepository
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             Day1Theme {
+
                 // A surface container using the 'background' color from the theme
+                computer.getStarted()
+                userRepository.saveUser()
                 App()
             }
         }

@@ -1,6 +1,8 @@
 package com.twugteam.admin.day1.di
 
-class Computer(private val i5:Processor, private val powerSupply:PowerSupply) {
+import javax.inject.Inject
+
+class Computer @Inject constructor(private val i5:Processor, private val powerSupply:PowerSupply) {
     fun getStarted(){
         i5.connect()
         println("Computer Started")
@@ -8,19 +10,20 @@ class Computer(private val i5:Processor, private val powerSupply:PowerSupply) {
 }
 
 
-open class Processor(private val ic:Chip) {
+open class Processor @Inject constructor(private val ic:Chip) {
     open fun connect(){
         ic.initialize()
         println("Processor Connected")
     }
 }
 
-open class Chip(){
+open class Chip @Inject constructor(){
     fun initialize(){
         println("Chip Initialized")
     }
 }
 
-class PowerSupply{
+class PowerSupply @Inject constructor(){
 
 }
+
